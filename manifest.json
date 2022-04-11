@@ -1,0 +1,82 @@
+{
+    "_version": "1.15.0",
+    "sap.app": {
+        "id": "com.card.Card",
+        "type": "card",
+        "title": "Employee",
+        "subTitle": "Employee Job Information",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "key": {},
+            "key1": {}
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        },
+        "icons": {
+            "icon": "sap-icon://switch-classes"
+        }
+    },
+    "sap.card": {
+        "extension": "./DataExtension",
+        "configuration": {
+            "destinations": {
+                "SFSFDestination": {
+                    "name": "SFSFSalesDemo"
+                }
+            },
+            "parameters": {
+				"maxItems": {
+					"value": 1,
+					"type": "integer",
+					"label": "Maximum Items",
+					"description": "Defines how many items will be displayed at most."
+				}
+			}
+        },
+        "type": "Object",
+        "data": {
+            "extension": {
+                "method": "getData"
+            }
+        },
+        "header": {
+            "title": "{firstName} {lastName}",
+            "icon": {
+                "src": "data:image/bmp;base64,{photo}"
+            }
+        },
+        "content": {
+            "groups": [
+                {
+                    "title": "Job Information",
+                    "items": [
+                        {
+                            "label": "Full Name:",
+                            "value": "{firstName} {lastName}"
+                        },
+                        {
+                            "label": "Division:",
+                            "value": "{division}"
+                        },
+                        {
+                            "label": "Department:",
+                            "value": "{department}"
+                        }
+                    ]
+                }
+            ]
+        },
+        "designtime": "dt/configuration"
+    },
+    "sap.platform.mobilecards": {
+        "compatible": true
+    }
+}
